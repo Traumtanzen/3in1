@@ -6,13 +6,13 @@ namespace _3in1
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello! Here we can play some games. How should I call you?");
+            string player = Console.ReadLine();
+            Console.WriteLine($"Ok, {player}, type 1-3 to choose a game or anything else to quit and press <Enter>");
             GameChoice();
         }
         static void GameChoice()
         {
-            Console.WriteLine("Hello! Here we can play some games. How should I call you?");
-            string player = Console.ReadLine();
-            Console.WriteLine($"Ok, {player}, type 1-3 to choose a game or anything else to quit and press <Enter>");
             Console.WriteLine("1. \"You guess the number\"");
             Console.WriteLine("2. \"AI guesses the number\"");
             Console.WriteLine("3. \"Journey to Sphynx\"");
