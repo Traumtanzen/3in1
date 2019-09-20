@@ -45,31 +45,45 @@ namespace _3in1
         }
         static void AIGuessAlg()
         {
+            bool flag = true;
             Random number = new Random();
             int SetNmbr = number.Next(1, 100);
-            int guess;
-            bool guessCheck = Int32.TryParse(Console.ReadLine(), out guess);
-            if (guess > 100 || guess < 1 || guessCheck == false)
+            while (flag)
             {
-                Console.WriteLine($"You should choose numbers from 1 to 100");
-            }
-            else if (guess > SetNmbr)
-            {
-                Console.WriteLine("Not so big! Try again, please");
-            }
-            else if (guess < SetNmbr)
-            {
-                Console.WriteLine("Not so small! Try again, please");
-            }
-            else if (SetNmbr == guess)
-            {
-                Console.WriteLine("That's it! Now you may try other games");
+                int guess;
+                bool guessCheck = Int32.TryParse(Console.ReadLine(), out guess);
+                if (guess > 100 || guess < 1 || guessCheck == false)
+                {
+                    Console.WriteLine($"You should choose numbers from 1 to 100");
+                }
+                else if (guess > SetNmbr)
+                {
+                    Console.WriteLine("Not so big! Try again, please");
+                }
+                else if (guess < SetNmbr)
+                {
+                    Console.WriteLine("Not so small! Try again, please");
+                }
+                else if (SetNmbr == guess)
+                {
+                    Console.WriteLine("That's it! Now you may try other games");
+                    flag = false;
+                    GameChoice();
+                }
             }
         }
         static void YouGuess()
         {
 
         }
+        static void Sphynx()
+        {
 
+        }
+        static void Exit()
+        {
+            Console.WriteLine("See you later!");
+            Console.ReadLine();
+        }
     }
 }
