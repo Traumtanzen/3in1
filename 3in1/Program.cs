@@ -103,7 +103,7 @@ namespace _3in1
         static string SphStart()
         {
             Console.WriteLine("Hello Stranger! You're now at the beginning of a dangerous journey." +
-                "\n Are you ready to start ?");
+                "\nAre you ready to start ?");
             string firstAnswer = Console.ReadLine();
             firstAnswer.ToLower();
             return firstAnswer;
@@ -118,6 +118,7 @@ namespace _3in1
                         "\nThe darkness surrounds and you see only a small plate on the wall in front of you." +
                         "\nIt says: \"Next you'll have no right for a mistake\"." +
                         "\nOn reading these lines you feel that something stares at you. What will you do?");
+                    PreSecondChoice();
                 }
                 else if (SphStart() == "no")
                 {
@@ -128,7 +129,6 @@ namespace _3in1
                     Console.WriteLine("You must type <yes> or <no>.");
                 }
             }
-            PreSecondChoice();
         }
         static string PreSecondChoice()
         {
