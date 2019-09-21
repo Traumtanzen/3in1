@@ -21,53 +21,57 @@ namespace _3in1
         static void ChoiceAlg()
         {
             string choice = Console.ReadLine();
-            switch (choice)
+            if (choice == "1")
             {
-                case "1":
-                    YouGuess();
-                    break;
-                case "2":
-                    AIGuess();
-                    break;
-                case "3":
-                    Sphynx();
-                    break;
-                default:
-                    Exit();
-                    break;
+                YouGuess();
+            }
+            else if (choice == "2")
+            {
+                AIGuess();
+            }
+            else if (choice == "3")
+            {
+                Sphynx();
+            }
+            else
+            {
+                Exit();
             }
         }
         static void AIGuess()
         {
-            Console.WriteLine($"Ok, now AI will set a number from 1 to 100 and you'll have to try to guess it");
+            Console.WriteLine("Ok, now AI will set a number from 1 to 100 and you'll have to try to guess it");
             Console.WriteLine("Type your guesses and press <Enter>");
             AIGuessAlg();
         }
-        static void AIGuessAlg()
+        static int RandomizedNumber()
         {
-            bool flag = true;
             Random number = new Random();
             int SetNmbr = number.Next(1, 100);
+            return SetNmbr;
+        }
+        static void AIGuessAlg()
+        {
+            int AInmbr = RandomizedNumber();
+            bool flag = true;
             while (flag)
             {
-                int guess;
-                bool guessCheck = Int32.TryParse(Console.ReadLine(), out guess);
+                bool guessCheck = Int32.TryParse(Console.ReadLine(), out int guess);
                 if (guess > 100 || guess < 1 || guessCheck == false)
                 {
                     Console.WriteLine($"You should choose numbers from 1 to 100");
                 }
-                else if (guess > SetNmbr)
+                else if (guess > AInmbr)
                 {
                     Console.WriteLine("Not so big! Try again, please");
                 }
-                else if (guess < SetNmbr)
+                else if (guess < AInmbr)
                 {
                     Console.WriteLine("Not so small! Try again, please");
                 }
-                else if (SetNmbr == guess)
+                else if (guess == AInmbr)
                 {
                     Console.WriteLine("That's it! Now you may try other games");
-                    flag = false;
                     GameChoice();
                 }
             }
