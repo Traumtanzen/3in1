@@ -7,8 +7,13 @@ namespace _3in1
         static void Main(string[] args)
         {
             Console.WriteLine("Hello! Here we can play some games. How should I call you?");
-            string player = Console.ReadLine();
-            Console.WriteLine($"Ok, {player}, type 1-3 to choose a game or anything else to quit and press <Enter>");
+            string name = SetName();
+            Console.WriteLine($"Ok, {name}, type 1-3 to choose a game or anything else to quit and press <Enter>");
+            GameChoice();
+        }
+        static void Replay()
+        {
+            Console.WriteLine("Type 1-3 to choose a game or anything else to quit and press <Enter>");
             GameChoice();
         }
         static void GameChoice()
@@ -17,6 +22,11 @@ namespace _3in1
             Console.WriteLine("2. \"AI guesses the number\"");
             Console.WriteLine("3. \"Journey to Sphynx\"");
             ChoiceAlg();
+        }
+        static string SetName()
+        {
+            string player = Console.ReadLine();
+            return player;
         }
         static void ChoiceAlg()
         {
@@ -40,15 +50,9 @@ namespace _3in1
         }
         static void AIGuess()
         {
-            Console.WriteLine("Ok, now AI will set a number from 1 to 100 and you'll have to try to guess it");
-            Console.WriteLine("Type your guesses and press <Enter>");
+            Console.WriteLine("Ok, now AI will set a number from 1 to 100 and you'll have to try to guess it \n Type your guesses and press <Enter>");
+            //Console.WriteLine("Type your guesses and press <Enter>");
             AIGuessAlg();
-        }
-        static int RandomizedNumber()
-        {
-            Random number = new Random();
-            int SetNmbr = number.Next(1, 100);
-            return SetNmbr;
         }
         static void AIGuessAlg()
         {
@@ -72,9 +76,15 @@ namespace _3in1
                 else if (guess == AInmbr)
                 {
                     Console.WriteLine("That's it! Now you may try other games");
-                    GameChoice();
+                    Replay();
                 }
             }
+        }
+        static int RandomizedNumber()
+        {
+            Random number = new Random();
+            int SetNmbr = number.Next(1, 100);
+            return SetNmbr;
         }
         static void YouGuess()
         {
